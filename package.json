@@ -3,9 +3,31 @@
   "version": "1.0.0",
   "description": "Hent data fra FINT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard && jest",
+    "start": "func start"
   },
   "keywords": [],
   "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no> (https://github.com/runely)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vtfk/logger": "2.5.2",
+    "client-oauth2": "4.3.3",
+    "graphql": "15.5.0",
+    "graphql-request": "3.4.0"
+  },
+  "devDependencies": {
+    "jest": "27.0.5",
+    "standard": "16.0.3"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*test.[jt]s?(x)",
+      "**/?(*.)+.(spec|test).[jt]s?(x)"
+    ]
+  }
 }
