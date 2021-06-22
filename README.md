@@ -11,11 +11,9 @@ Alle API-kall krever en Authorization header med en gyldig JWT
 }
 ```
 
-**Dersom man ønsker informasjon kun for en gitt lærer, legges `UPN` med som caller i private claims**
-
 ### `POST /graphql`
 
-Post raw GraphQL query og få JSON tilbake
+Raw GraphQL
 
 **Forespørsel**
 ```json
@@ -52,67 +50,41 @@ query fodselsnummer($ssn: String) {
 }
 ```
 
-### `GET /students`
+### `POST /graphql`
 
-Henter alle elever
+GraphQL by template
 
-### `GET /students/{id}`
+**Forespørsel**
+```json
+{
+  "template": "person",
+  "variables": {
+    "ssn": "01010101010"
+  },
+  "options": { // valgfri; hvis ikke definert brukes production endepunkt
+    "beta": true // vil bruke beta endepunkt istedenfor production endepunkt; hvis ikke definert brukes production endepunkt
+  }
+}
+```
 
-Henter informasjon om en elev ved å angi fødselsnummer
+**Response**
+```json
+{
+  "person": {
+    "navn": {
+      "fornavn": "Fik",
+      "mellomnavn": null,
+      "etternavn": "Tiv"
+    }
+  }
+}
+```
 
-### `GET /students/{id}/contactteachers`
+## Templates
 
-Henter kontaktlærerne for en elev ved å angi fødselsnummer
-
-### `GET /teachers`
-
-Henter alle lærere
-
-### `GET /teachers/{id}`
-
-Henter informasjon om en lærer ved å angi fødselsnummer
-
-### `GET /teachers/{id}/contactclasses`
-
-Henter alle klasser lærer er kontaktlærer for ved å angi fødselsnummer
-
-### `GET /teachers/{id}/students`
-
-Henter alle elever lærer underviser for ved å angi fødselsnummer
-
-### `GET /classes`
-
-Henter alle klasser
-
-### `GET /classes/{id}`
-
-Henter informasjon om en klasse ved å angi klassenavn
-
-### `GET /classes/{id}/students`
-
-Henter alle elever i en klasse ved å angi klassenavn
-
-Dersom du kun vil hente elever for angitt lærer, sett `me` query parameteren til true: `/classes/{id}/students?me=true`
-
-### `GET /classes/{id}/teachers`
-
-Henter alle lærere som underviser en klasse ved å angi klassenavn
-
-### `GET /schools`
-
-Henter alle skoler
-
-### `GET /schools/{id}`
-
-Henter informasjon om en skole
-
-### `GET /schools/{id}/teachers`
-
-Henter alle lærere ved en skole
-
-### `GET /schools/{id}/students`
-
-Henter alle elever ved en skole
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| person | Henter basisinformasjon om en person samt et elevforhold eller arbeidsforhold |
 
 ## Utvikling lokalt
 
@@ -129,7 +101,7 @@ Opprett en `local.settings.json` fil med følgende innhold:
     "OAUTH_CLIENT_ID": "clientId",
     "OAUTH_CLIENT_SECRET": "clientSecret",
     "OAUTH_IDP_URL": "https://idp.felleskomponent.no/nidp/oauth/nam/token",
-    "OAUTH_SCOPES": ["fint-client"],
+    "OAUTH_SCOPES": "fint-client",
     "GRAPHQL_URL": "https://api.felleskomponent.no/graphql/graphql",
     "GRAPHQL_URL_BETA": "https://beta.felleskomponent.no/graphql/graphql"
   }
