@@ -1,12 +1,13 @@
 const { logger, logConfig } = require('@vtfk/logger')
-const response = require('../lib/response')
+const withTokenAuth = require('../lib/with-token-auth')
+const HTTPError = require('../lib/http-error')
 const processQuery = require('../lib/GraphQL/process-graphql-query')
 const getTemplate = require('../lib/get-template')
 
-module.exports = async (context, req) => {
+const handleQuery = async (context, req) => {
   if (!req || !req.body || (!req.body.query && !req.body.template) || !req.body.variables) {
     logger('error', ['graphql', 'Invalid request'])
-    return response('Invalid request', 500)
+    return new HTTPError(500, 'Invalid request').toJSON()
   }
 
   const { template, variables, options } = req.body
@@ -19,11 +20,18 @@ module.exports = async (context, req) => {
   try {
     logger('info', ['start'])
     if (template) { query = getTemplate(template) }
-    const data = await processQuery(query, variables || {}, options)
-    logger('info', ['finished', Array.isArray(data) ? data.length : 1])
-    return response(data)
+    const body = await processQuery(query, variables || {}, options)
+    logger('info', ['finished', Array.isArray(body) ? body.length : 1])
+    return {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body
+    }
   } catch (error) {
     logger('error', [error])
-    return response(error, 400)
+    return new HTTPError(400, error.message).toJSON()
   }
 }
+
+module.exports = (context, req) => withTokenAuth(context, req, handleQuery)

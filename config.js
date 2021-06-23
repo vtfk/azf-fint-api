@@ -1,4 +1,5 @@
 module.exports = {
+  JWT_SECRET: process.env.JWT_SECRET,
   OAUTH: {
     clientId: process.env.OAUTH_CLIENT_ID || '',
     clientSecret: process.env.OAUTH_CLIENT_SECRET || '',
