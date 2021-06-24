@@ -85,7 +85,7 @@ module.exports = {
         arbeidsforhold {
           stillingstittel
           ansettelsesprosent
-          arbeidsforholdsperiode {
+          gyldighetsperiode {
             start
             slutt
           }
