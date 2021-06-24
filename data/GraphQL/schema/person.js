@@ -28,6 +28,10 @@ module.exports = {
           skole {
             navn
           }
+          gyldighetsperiode {
+            start
+            slutt
+          }
           basisgruppe {
             navn
             trinn {
@@ -82,6 +86,10 @@ module.exports = {
         }
       }
       personalressurs {
+        ansettelsesperiode {
+          start
+          slutt
+        }
         arbeidsforhold {
           stillingstittel
           ansettelsesprosent
