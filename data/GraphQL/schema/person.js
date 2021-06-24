@@ -89,7 +89,6 @@ module.exports = {
             start
             slutt
           }
-          hovedstilling
           undervisningsforhold {
             basisgruppe {
               navn
