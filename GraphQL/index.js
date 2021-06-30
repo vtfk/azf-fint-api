@@ -3,6 +3,7 @@ const withTokenAuth = require('../lib/with-token-auth')
 const HTTPError = require('../lib/http-error')
 const processQuery = require('../lib/GraphQL/process-graphql-query')
 const getTemplate = require('../lib/get-template')
+const getResponse = require('../lib/get-response')
 
 const handleQuery = async (context, req) => {
   if (!req || !req.body || (!req.body.query && !req.body.template) || !req.body.variables) {
@@ -22,12 +23,7 @@ const handleQuery = async (context, req) => {
     if (template) { query = getTemplate(template) }
     const body = await processQuery(query, variables || {}, options)
     logger('info', ['finished', Array.isArray(body) ? body.length : 1])
-    return {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body
-    }
+    return getResponse(body)
   } catch (error) {
     logger('error', [error])
     return new HTTPError(400, error.message).toJSON()

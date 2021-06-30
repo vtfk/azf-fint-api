@@ -80,6 +80,21 @@ GraphQL by template
 }
 ```
 
+### `GET /url?url=url`
+
+Get FINT data from system url
+
+### `POST /url`
+
+Get FINT data from system url
+
+**Forespørsel**
+```json
+{
+  "url": "url"
+}
+```
+
 ## Templates
 
 | Navn | Beskrivelse |

@@ -1,5 +1,5 @@
 require('./lib/mock-envs')()
-const getUrl = require('../lib/get-url')
+const getUrl = require('../lib/get-fint-url')
 const { GRAPHQL: { URL, URL_BETA } } = require('../config')
 
 test('Options not set returns production url', () => {
