@@ -80,7 +80,7 @@ GraphQL by template
 }
 ```
 
-### `GET /url?url=url`
+### `GET /url?url=https://beta.felleskomponent.no/utdanning/utdanningsprogram/programomrade/systemid/SSITU3----`
 
 Get FINT data from system url
 
@@ -91,7 +91,7 @@ Get FINT data from system url
 **Forespørsel**
 ```json
 {
-  "url": "url"
+  "url": "https://beta.felleskomponent.no/utdanning/utdanningsprogram/programomrade/systemid/SSITU3----"
 }
 ```
 
