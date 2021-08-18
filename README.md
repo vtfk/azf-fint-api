@@ -52,7 +52,7 @@ query fodselsnummer($ssn: String) {
 
 ### `POST /graphql`
 
-GraphQL by template
+GraphQL by template for en elev
 
 **Forespørsel**
 ```json
@@ -73,9 +73,230 @@ GraphQL by template
   "person": {
     "navn": {
       "fornavn": "Fik",
-      "mellomnavn": null,
+      "mellomnavn": "",
       "etternavn": "Tiv"
-    }
+    },
+    "kontaktinformasjon": {
+      "epostadresse": null,
+      "mobiltelefonnummer": "00000000",
+      "telefonnummer": null
+    },
+    "fodselsdato": "2001-01-01T00:00:00Z",
+    "fodselsnummer": {
+      "identifikatorverdi": "01010101010"
+    },
+    "kjonn": {
+      "kode": "2"
+    },
+    "bostedsadresse": {
+      "adresselinje": [
+        "Gatevei"
+      ],
+      "postnummer": "1",
+      "poststed": "Postplass"
+    },
+    "elev": {
+      "elevforhold": [
+        {
+          "skole": {
+            "navn": "Nøtterøy videregående skole"
+          },
+          "gyldighetsperiode": {
+            "start": "2021-08-01T00:00:00Z",
+            "slutt": "2022-07-31T00:00:00Z"
+          },
+          "basisgruppe": [
+            {
+              "navn": "1STA",
+              "trinn": {
+                "navn": "VG1"
+              },
+              "termin": [
+                {
+                  "navn": "T2"
+                },
+                {
+                  "navn": "T1"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ]
+            }
+          ],
+          "undervisningsgruppe": [
+            {
+              "navn": "M1/MAT1019-1",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1STA/ENG1007",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1STA/GEO1003",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1STA/NOR1260",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1STA/SAK1001",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1TY2A/FSP6241",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1STA/NOR1261",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1STA/KRO1017",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            },
+            {
+              "navn": "1STA/NAT1007",
+              "periode": [
+                {
+                  "start": "2021-08-01T00:00:00Z",
+                  "slutt": "2022-07-31T00:00:00Z"
+                }
+              ],
+              "skolear": {
+                "navn": "20212022"
+              },
+              "skole": {
+                "navn": "Nøtterøy videregående skole"
+              }
+            }
+          ],
+          "kontaktlarergruppe": [
+            {
+              "navn": "1STA",
+              "undervisningsforhold": [
+                {
+                  "skoleressurs": {
+                    "person": {
+                      "fodselsnummer": {
+                        "identifikatorverdi": "02020202020"
+                      },
+                      "navn": {
+                        "fornavn": "Fik",
+                        "mellomnavn": "",
+                        "etternavn": "Tiv Lærer"
+                      },
+                      "kontaktinformasjon": {
+                        "epostadresse": "fik.tiv@vtfk.no",
+                        "mobiltelefonnummer": "00000001",
+                        "telefonnummer": null
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "personalressurs": null
   }
 }
 ```
