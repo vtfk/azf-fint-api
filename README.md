@@ -33,7 +33,8 @@ query fodselsnummer($ssn: String) {
   },
   "options": { // valgfri; hvis ikke definert brukes production endepunkt
     "beta": true // vil bruke beta endepunkt istedenfor production endepunkt; hvis ikke definert brukes production endepunkt
-  }
+  },
+  "timeout": 2500 // valgfri; hvis ikke definert eller satt til 0 så brukes ikke timeout
 }
 ```
 
@@ -63,7 +64,8 @@ GraphQL by template for en elev
   },
   "options": { // valgfri; hvis ikke definert brukes production endepunkt
     "beta": true // vil bruke beta endepunkt istedenfor production endepunkt; hvis ikke definert brukes production endepunkt
-  }
+  },
+  "timeout": 2500 // valgfri; hvis ikke definert eller satt til 0 så brukes ikke timeout
 }
 ```
 
@@ -312,7 +314,8 @@ Get FINT data from system url
 **Forespørsel**
 ```json
 {
-  "url": "https://beta.felleskomponent.no/utdanning/utdanningsprogram/programomrade/systemid/SSITU3----"
+  "url": "https://beta.felleskomponent.no/utdanning/utdanningsprogram/programomrade/systemid/SSITU3----",
+  "timeout": 2500 // valgfri; hvis ikke definert eller satt til 0 så brukes ikke timeout
 }
 ```
 
