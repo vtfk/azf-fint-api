@@ -1,5 +1,7 @@
 const { logger, logConfig } = require('@vtfk/logger')
 const withTokenAuth = require('../lib/with-token-auth')
+const { TIMEOUT } = require('../config')
+const { isNetworkTimeout, networkTimeoutMessage } = require('../lib/network-timeout')
 const HTTPError = require('../lib/http-error')
 const processQuery = require('../lib/GraphQL/process-graphql-query')
 const getTemplate = require('../lib/get-template')
@@ -12,6 +14,7 @@ const handleQuery = async (context, req) => {
   }
 
   const { template, variables, options } = req.body
+  const timeout = req.body?.timeout || TIMEOUT
   let { query } = req.body
 
   logConfig({
@@ -19,14 +22,16 @@ const handleQuery = async (context, req) => {
   })
 
   try {
-    logger('info', ['start'])
+    logger('info', ['start', 'timeout', timeout])
     if (template) { query = getTemplate(template) }
-    const body = await processQuery(query, variables || {}, options)
+    const body = await processQuery(query, variables || {}, options, timeout)
     logger('info', ['finished', Array.isArray(body) ? body.length : 1])
     return getResponse(body)
   } catch (error) {
     logger('error', [error])
-    return new HTTPError(400, error.message).toJSON()
+    if (isNetworkTimeout(error.message)) {
+      return new HTTPError(500, networkTimeoutMessage(timeout)).toJSON()
+    } else return new HTTPError(400, error.message).toJSON()
   }
 }
 

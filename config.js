@@ -17,5 +17,6 @@ module.exports = {
   WHITELIST: {
     URL: (process.env.GRAPHQL_URL && process.env.GRAPHQL_URL.replace('/graphql/graphql', '')) || '',
     URL_BETA: (process.env.GRAPHQL_URL_BETA && process.env.GRAPHQL_URL_BETA.replace('/graphql/graphql', '')) || ''
-  }
+  },
+  TIMEOUT: (process.env.TIMEOUT && Number.parseInt(process.env.TIMEOUT)) || 0
 }
