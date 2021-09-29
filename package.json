@@ -19,7 +19,7 @@
     "node-cache": "5.1.2"
   },
   "devDependencies": {
-    "jest": "27.2.2",
+    "jest": "27.2.4",
     "standard": "16.0.3"
   },
   "standard": {
