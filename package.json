@@ -14,7 +14,7 @@
     "axios": "0.24.0",
     "client-oauth2": "4.3.3",
     "graphql": "15.7.2",
-    "graphql-request": "3.6.1",
+    "graphql-request": "3.7.0",
     "jsonwebtoken": "8.5.1",
     "node-cache": "5.1.2"
   },
