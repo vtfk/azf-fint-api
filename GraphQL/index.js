@@ -18,7 +18,7 @@ const handleQuery = async (context, req) => {
   let { query } = req.body
 
   logConfig({
-    prefix: `graphql - ${template ? 'template' : 'query'}`
+    prefix: `graphql - ${template ? `template - ${template}` : 'query'}`
   })
 
   try {

@@ -1,6 +1,6 @@
 module.exports = {
-  query: `query fodselsnummer($fodselsnummer: String) {
-    person(fodselsnummer: $fodselsnummer) {
+  query: `query fodselsnummer($identity: String) {
+    person(fodselsnummer: $identity) {
       navn {
         fornavn
         mellomnavn
@@ -28,7 +28,11 @@ module.exports = {
           skole {
             navn
           }
-          hovedskole
+          programomrade {
+            utdanningsprogram {
+              navn
+            }
+          }
           gyldighetsperiode {
             start
             slutt
@@ -48,6 +52,9 @@ module.exports = {
               start
               slutt
             }
+            systemId {
+              identifikatorverdi
+            }
           }
           undervisningsgruppe {
             navn
@@ -60,6 +67,9 @@ module.exports = {
             }
             skole {
               navn
+            }
+            systemId {
+              identifikatorverdi
             }
           }
           kontaktlarergruppe {
@@ -81,51 +91,6 @@ module.exports = {
                     telefonnummer
                   }
                 }
-              }
-            }
-          }
-        }
-      }
-      personalressurs {
-        ansettelsesperiode {
-          start
-          slutt
-        }
-        arbeidsforhold {
-          stillingstittel
-          ansettelsesprosent
-          gyldighetsperiode {
-            start
-            slutt
-          }
-          undervisningsforhold {
-            basisgruppe {
-              navn
-              trinn {
-                navn
-              }
-              termin {
-                navn
-              }
-              skolear {
-                navn
-              }
-              periode {
-                start
-                slutt
-              }
-            }
-            undervisningsgruppe {
-              navn
-              periode {
-                start
-                slutt
-              }
-              skolear {
-                navn
-              }
-              skole {
-                navn
               }
             }
           }
