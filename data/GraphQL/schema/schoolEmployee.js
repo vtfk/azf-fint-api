@@ -42,16 +42,6 @@ module.exports = {
             identifikatorverdi
           }
         }
-        kontaktlarergruppe {
-          navn
-          periode {
-            start
-            slutt
-          }
-          skole {
-            navn
-          }
-        }
       }
       personalressurs {
         ansettelsesperiode {
