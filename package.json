@@ -4,7 +4,8 @@
   "description": "Hent data fra FINT",
   "scripts": {
     "test": "standard && jest",
-    "start": "func start"
+    "start": "func start",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
   },
   "keywords": [],
   "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no> (https://github.com/runely)",
