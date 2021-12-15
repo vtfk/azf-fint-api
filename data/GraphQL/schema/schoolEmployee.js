@@ -28,6 +28,16 @@ module.exports = {
           systemId {
             identifikatorverdi
           }
+          elevforhold {
+            elev {
+              person {
+                navn {
+                  fornavn
+                  etternavn
+                }
+              }
+            }
+          }
         }
         undervisningsgruppe {
           navn
