@@ -342,7 +342,14 @@ Opprett en `local.settings.json` fil med følgende innhold:
     "OAUTH_IDP_URL": "https://idp.felleskomponent.no/nidp/oauth/nam/token",
     "OAUTH_SCOPES": "fint-client",
     "GRAPHQL_URL": "https://api.felleskomponent.no/graphql/graphql",
-    "GRAPHQL_URL_BETA": "https://beta.felleskomponent.no/graphql/graphql"
+    "GRAPHQL_URL_BETA": "https://beta.felleskomponent.no/graphql/graphql",
+    "E18_URL": "https://e18url.net", // optional
+    "E18_KEY": "secret token", // optional
+    "E18_SYSTEM": "fint" // optional
   }
 }
 ```
+
+### E18
+
+To support [E18](https://github.com/vtfk/e18-node#usage), add `E18_URL`, `E18_KEY` and `E18_SYSTEM`

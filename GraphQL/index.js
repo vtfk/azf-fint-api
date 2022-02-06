@@ -1,4 +1,5 @@
 const { logger, logConfig } = require('@vtfk/logger')
+const { create: roadRunner } = require('@vtfk/e18')
 const withTokenAuth = require('../lib/with-token-auth')
 const { TIMEOUT } = require('../config')
 const { isNetworkTimeout, networkTimeoutMessage } = require('../lib/network-timeout')
@@ -10,6 +11,7 @@ const getResponse = require('../lib/get-response')
 const handleQuery = async (context, req) => {
   if (!req || !req.body || (!req.body.query && !req.body.template) || !req.body.variables) {
     logger('error', ['graphql', 'Invalid request'])
+    await roadRunner(req, { status: 'failed', error: 'Invalid request' }, context)
     return new HTTPError(500, 'Invalid request').toJSON()
   }
 
@@ -26,12 +28,17 @@ const handleQuery = async (context, req) => {
     if (template) { query = getTemplate(template) }
     const body = await processQuery(query, variables || {}, options, timeout)
     logger('info', ['finished', Array.isArray(body) ? body.length : 1])
+    await roadRunner(req, { status: 'completed', data: body }, context)
     return getResponse(body)
   } catch (error) {
     logger('error', [error])
     if (isNetworkTimeout(error.message)) {
+      await roadRunner(req, { status: 'failed', error, message: networkTimeoutMessage(timeout) }, context)
       return new HTTPError(500, networkTimeoutMessage(timeout)).toJSON()
-    } else return new HTTPError(400, error.message).toJSON()
+    } else {
+      await roadRunner(req, { status: 'failed', error, message: error.message }, context)
+      return new HTTPError(400, error.message).toJSON()
+    }
   }
 }
 
