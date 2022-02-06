@@ -19,7 +19,9 @@
 name: Deploy to Azure Functions
 
 on:
-  push:
+  workflow_dispatch:
+  release:
+    types: [published]
     branches: [main]
 
 env:
