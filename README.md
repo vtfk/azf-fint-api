@@ -345,7 +345,8 @@ Opprett en `local.settings.json` fil med følgende innhold:
     "GRAPHQL_URL_BETA": "https://beta.felleskomponent.no/graphql/graphql",
     "E18_URL": "https://e18url.net", // optional
     "E18_KEY": "secret token", // optional
-    "E18_SYSTEM": "fint" // optional
+    "E18_SYSTEM": "fint", // optional
+    "E18_EMPTY_JOB": true // optional
   }
 }
 ```
