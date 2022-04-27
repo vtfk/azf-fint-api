@@ -28,6 +28,7 @@ module.exports = {
           skole {
             navn
           }
+          hovedskole
           programomrade {
             utdanningsprogram {
               navn
