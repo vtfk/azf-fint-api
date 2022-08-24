@@ -53,14 +53,14 @@ query fodselsnummer($ssn: String) {
 
 ### `POST /graphql`
 
-GraphQL by template for en elev
+#### GraphQL by template for en elev
 
 **Forespørsel**
 ```json
 {
-  "template": "person",
+  "template": "student",
   "variables": {
-    "ssn": "01010101010"
+    "identity": "01010101010"
   },
   "options": { // valgfri; hvis ikke definert brukes production endepunkt
     "beta": true // vil bruke beta endepunkt istedenfor production endepunkt; hvis ikke definert brukes production endepunkt
@@ -103,6 +103,14 @@ GraphQL by template for en elev
           "skole": {
             "navn": "Nøtterøy videregående skole"
           },
+          "hovedskole": true,
+          "programomrade": {
+            "utdanningsprogram": [
+              {
+                "navn": "Nøtterøy"
+              }
+            ]
+          },
           "gyldighetsperiode": {
             "start": "2021-08-01T00:00:00Z",
             "slutt": "2022-07-31T00:00:00Z"
@@ -129,7 +137,10 @@ GraphQL by template for en elev
                   "start": "2021-08-01T00:00:00Z",
                   "slutt": "2022-07-31T00:00:00Z"
                 }
-              ]
+              ],
+              "systemId": {
+                "identifikatorverdi": "1234567"
+              }
             }
           ],
           "undervisningsgruppe": [
@@ -146,6 +157,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345678"
               }
             },
             {
@@ -161,6 +175,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345677"
               }
             },
             {
@@ -176,6 +193,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345676"
               }
             },
             {
@@ -191,6 +211,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345675"
               }
             },
             {
@@ -206,6 +229,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345674"
               }
             },
             {
@@ -221,6 +247,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345673"
               }
             },
             {
@@ -236,6 +265,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345672"
               }
             },
             {
@@ -251,6 +283,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345671"
               }
             },
             {
@@ -266,6 +301,9 @@ GraphQL by template for en elev
               },
               "skole": {
                 "navn": "Nøtterøy videregående skole"
+              },
+              "systemId": {
+                "identifikatorverdi": "12345670"
               }
             }
           ],
@@ -297,8 +335,199 @@ GraphQL by template for en elev
           ]
         }
       ]
+    }
+  }
+}
+```
+
+#### GraphQL by template for en skoleansatt
+
+**Forespørsel**
+```json
+{
+  "template": "schoolEmployee",
+  "variables": {
+    "identity": "fik0101@vtfk.no"
+  },
+  "options": { // valgfri; hvis ikke definert brukes production endepunkt
+    "beta": true // vil bruke beta endepunkt istedenfor production endepunkt; hvis ikke definert brukes production endepunkt
+  },
+  "timeout": 2500 // valgfri; hvis ikke definert eller satt til 0 så brukes ikke timeout
+}
+```
+
+**Response**
+```json
+{
+  "skoleressurs": {
+    "person": {
+      "navn": {
+        "fornavn": "Fik",
+        "mellomnavn": "",
+        "etternavn": "Tiv"
+      },
+      "kontaktinformasjon": {
+        "epostadresse": null,
+        "mobiltelefonnummer": "00000000"
+      },
+      "fodselsnummer": {
+        "identifikatorverdi": "01010101010"
+      }
     },
-    "personalressurs": null
+    "undervisningsforhold": [
+      {
+        "basisgruppe": [
+          {
+            "navn": "2STB",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "1234569"
+            },
+            "elevforhold": [
+              {
+                "elev": {
+                  "person": {
+                    "navn": {
+                      "fornavn": "Fik",
+                      "etternavn": "Tiv 2"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "undervisningsgruppe": [
+          {
+            "navn": "1SSC/ENG1009",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "12345675"
+            }
+          },
+          {
+            "navn": "GEN-MAN/ENGRS01",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "12345674"
+            }
+          },
+          {
+            "navn": "2ITA2ITB/SAK1001",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "12345673"
+            }
+          },
+          {
+            "navn": "1TEKB/ENG1009",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "12345672"
+            }
+          },
+          {
+            "navn": "2STB/HIS1009",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "12345671"
+            }
+          },
+          {
+            "navn": "3STC/HIS1010",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "12345670"
+            }
+          }
+        ]
+      }
+    ],
+    "personalressurs": {
+      "ansettelsesperiode": {
+        "start": "2016-08-01T00:00:00Z",
+        "slutt": null
+      },
+      "arbeidsforhold": [
+        {
+          "ansettelsesprosent": 10000,
+          "gyldighetsperiode": {
+            "start": "2021-08-01T00:00:00Z",
+            "slutt": "2021-09-30T23:59:59Z"
+          }
+        },
+        {
+          "ansettelsesprosent": 0,
+          "gyldighetsperiode": {
+            "start": "2021-08-01T00:00:00Z",
+            "slutt": null
+          }
+        },
+        {
+          "ansettelsesprosent": 10000,
+          "gyldighetsperiode": {
+            "start": "2021-10-01T00:00:00Z",
+            "slutt": null
+          }
+        }
+      ]
+    }
   }
 }
 ```
@@ -323,7 +552,8 @@ Get FINT data from system url
 
 | Navn | Beskrivelse |
 | ---- | ----------- |
-| person | Henter basisinformasjon om en person samt et elevforhold eller arbeidsforhold |
+| student | Henter basisinformasjon om en elev samt dets elevforhold |
+| schoolEmployee | Henter basisinformasjon om en skoleansatt samt dets arbeidsforhold |
 
 ## Utvikling lokalt
 
