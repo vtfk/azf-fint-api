@@ -573,6 +573,9 @@ Opprett en `local.settings.json` fil med følgende innhold:
     "OAUTH_SCOPES": "fint-client",
     "GRAPHQL_URL": "https://api.felleskomponent.no/graphql/graphql",
     "GRAPHQL_URL_BETA": "https://beta.felleskomponent.no/graphql/graphql",
+    "PAPERTRAIL_HOST": "https://logs.collector.solarwinds.com/v1/log", // optional for logging to Papertrail
+    "PAPERTRAIL_TOKEN": "token", // optional for logging to Papertrail
+    "NODE_ENV": "production", // optional for logging to Papertrail
     "E18_URL": "https://e18url.net", // optional
     "E18_KEY": "secret token", // optional
     "E18_SYSTEM": "fint", // optional
