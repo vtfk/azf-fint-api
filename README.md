@@ -405,6 +405,23 @@ query fodselsnummer($ssn: String) {
             ]
           }
         ],
+        "kontaktlarergruppe": [
+          {
+            "navn": "2STB",
+            "periode": [
+              {
+                "start": "2022-08-01T00:00:00Z",
+                "slutt": "2023-07-31T00:00:00Z"
+              }
+            ],
+            "skole": {
+              "navn": "Sandefjord videregående skole"
+            },
+            "systemId": {
+              "identifikatorverdi": "1234569_458978"
+            }
+          }
+        ],
         "undervisningsgruppe": [
           {
             "navn": "1SSC/ENG1009",

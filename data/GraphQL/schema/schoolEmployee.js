@@ -39,6 +39,19 @@ module.exports = {
             }
           }
         }
+        kontaktlarergruppe {
+          navn
+          periode {
+            start
+            slutt
+          }
+          skole {
+            navn
+          }
+          systemId {
+            identifikatorverdi
+          }
+        }
         undervisningsgruppe {
           navn
           periode {
