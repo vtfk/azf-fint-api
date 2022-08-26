@@ -15,6 +15,9 @@ module.exports = {
           identifikatorverdi
         }
       }
+      feidenavn {
+        identifikatorverdi
+      }
       undervisningsforhold {
         basisgruppe {
           navn

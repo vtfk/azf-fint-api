@@ -24,6 +24,9 @@ module.exports = {
         poststed
       }
       elev {
+        feidenavn {
+          identifikatorverdi
+        }
         elevforhold {
           skole {
             navn

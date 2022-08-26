@@ -98,6 +98,9 @@ query fodselsnummer($ssn: String) {
       "poststed": "Postplass"
     },
     "elev": {
+      "feidenavn": {
+        "identifikatorverdi": "fik0101@vtfk.no"
+      },
       "elevforhold": [
         {
           "skole": {
@@ -373,6 +376,9 @@ query fodselsnummer($ssn: String) {
       "fodselsnummer": {
         "identifikatorverdi": "01010101010"
       }
+    },
+    "feidenavn": {
+      "identifikatorverdi": "fik0101@vtfk.no"
     },
     "undervisningsforhold": [
       {
