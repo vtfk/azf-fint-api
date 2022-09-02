@@ -425,7 +425,16 @@ query fodselsnummer($ssn: String) {
             },
             "systemId": {
               "identifikatorverdi": "1234569_458978"
-            }
+            },
+            "undervisningsforhold": [
+              {
+                "skoleressurs": {
+                  "feidenavn": {
+                    "identifikatorverdi": "fik0101@vtfk.no"
+                  }
+                }
+              }
+            ]
           }
         ],
         "undervisningsgruppe": [

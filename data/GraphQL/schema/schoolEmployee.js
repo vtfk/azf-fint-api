@@ -54,6 +54,13 @@ module.exports = {
           systemId {
             identifikatorverdi
           }
+          undervisningsforhold {
+            skoleressurs {
+              feidenavn {
+                identifikatorverdi
+              }
+            }
+          }
         }
         undervisningsgruppe {
           navn
