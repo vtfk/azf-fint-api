@@ -78,6 +78,9 @@ module.exports = {
           }
           kontaktlarergruppe {
             navn
+            systemId {
+              identifikatorverdi
+            }
             undervisningsforhold {
               skoleressurs {
                 person {

@@ -313,6 +313,9 @@ query fodselsnummer($ssn: String) {
           "kontaktlarergruppe": [
             {
               "navn": "1STA",
+              "systemId": {
+                "identifikatorverdi": "1234567_7654321"
+              },
               "undervisningsforhold": [
                 {
                   "skoleressurs": {
